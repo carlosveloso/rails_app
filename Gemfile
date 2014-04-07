@@ -12,8 +12,10 @@ end
 group :test do
   gem 'selenium-webdriver'
   gem 'capybara'
+  gem 'launchy'
   gem 'guard-spork'
   gem 'spork-rails', :github => 'sporkrb/spork-rails' 
+  gem 'factory_girl_rails', '~> 4.4.1'
 end
 
 gem 'sass-rails', '~> 4.0.2'
@@ -24,6 +26,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
+gem 'bcrypt', '~> 3.1.7'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false
