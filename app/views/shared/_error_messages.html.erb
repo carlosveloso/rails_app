@@ -1,13 +1,12 @@
 <% if @user.errors.any? %>
 	<div id="">
-		<p class="bg-danger">
-		The form contains <%= pluralize(@user.errors.count, "error")  %>
-		</p>
-		<ul>
+		<%= content_tag(:div, "The form contains #{pluralize(@user.errors.count, "error")}", class: "alert alert-danger") %>
+
+		<!-- <ul>
 			<% @user.errors.full_messages.each do |msg| %>
 			<li class="text-danger"><%=msg %></li>
 			<% end %>
-		</ul>
+		</ul> -->
 	</div>
 
 <% end %>
