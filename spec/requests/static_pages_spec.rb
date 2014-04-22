@@ -52,7 +52,7 @@ describe "Static pages" do
 		page.should have_title(full_title('Ayuda'))
 
 		click_link "Ingresar"
-		page.should have_title(full_title('Registro'))
+		page.should have_title(full_title('Ingresar'))
 
 		click_link "About"
 		page.should have_title(full_title('Acerca'))
