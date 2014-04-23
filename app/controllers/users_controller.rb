@@ -5,6 +5,12 @@ class UsersController < ApplicationController
   def index
     per_page = 10
     @users = User.paginate page: params[:page], per_page: per_page
+    @part = render_to_string(:partial => "users/list",:layout => false, :locals => { :users => @users })
+    
+    respond_to do |format|
+      format.json { render :json => { :partial => @part } }
+      format.html
+    end
   end
 
   def show

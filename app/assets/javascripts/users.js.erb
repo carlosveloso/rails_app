@@ -1,0 +1,28 @@
+var ajax_will_paginate = function(s){
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: "users?page="+s,
+    success: function(msg){
+      $("#users_list").html(msg.partial);
+      replace_paginate_links();
+    }
+  });
+}
+
+// replace links function---------------------------
+
+var replace_paginate_links = function(){
+  $('div.pagination a').each(function(){
+    var new_attr = "ajax_will_paginate"
+    var get_href_a = $(this).attr('href').split('=');
+    var get_href = get_href_a[get_href_a.length-1]
+
+    $(this).attr('href',"#")
+    $(this).attr('onclick',"ajax_will_paginate('"+get_href+"'); return false;")
+  })
+}
+
+$(document).ready(function(){
+  replace_paginate_links();
+})
