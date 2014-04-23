@@ -27,4 +27,7 @@ RailsApp::Application.configure do
   # number of complex assets.
   config.assets.debug = false
   config.log_level = :debug
+
+  # Speed up tests by lowering bcrypt's cost function.
+  ActiveModel::SecurePassword.min_cost = true
 end

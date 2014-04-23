@@ -1,0 +1,54 @@
+<% provide :title, 'Edit user'%>
+<h1>Update your profile</h1>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= render 'shared/error_messages' %>
+		<%= form_for(@user, html: { class: "", role: "form" }) do |f| %>
+			<div class="form-group">
+				<%= f.label :name, class: "control-label" %>
+				<%= f.text_field :name, class: "form-control" %>
+				<% if @user.errors[:name] %>
+					<% @user.errors[:name].each do |error| %>
+						<span class="help-inline text-danger">- Name <%= error %></span><br>
+					<% end %>
+				<% end %>
+			</div>
+			
+			<div class="form-group">
+				<%= f.label :email, class: "control-label" %>
+				<%= f.text_field :email, class: "form-control" %>
+				<% if @user.errors[:email] %>
+					<% @user.errors[:email].each do |error| %>
+						<span class="help-inline text-danger">- Email <%= error %></span><br>
+					<% end %>
+				<% end %>
+			</div>
+			
+			<div class="form-group">
+				<%= f.label :password, class: "control-label " %>
+				<%= f.password_field :password, class: "form-control" %>
+				<% if @user.errors[:password] %>
+					<% @user.errors[:password].each do |error| %>
+						<span class="help-inline text-danger">- Password <%= error %></span><br>
+					<% end %>
+				<% end %>
+			</div>
+			
+			<div class="form-group">
+				<%= f.label :password_confirmation, "Confirm Password", class: "control-label" %>
+				<%= f.password_field :password_confirmation, class: "form-control" %>
+				<% if @user.errors[:password_confirmation] %>
+					<% @user.errors[:password_confirmation].each do |error| %>
+						<span class="help-inline text-danger">- Confirm Password <%= error %></span><br>
+					<% end %>
+				<% end %>
+			</div>
+			<div class="form-group">
+					<%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+			</div>
+		<% end %>
+		<%= gravatar_for @user %>
+    	<a href="http://gravatar.com/emails">change</a>
+	</div>
+</div>

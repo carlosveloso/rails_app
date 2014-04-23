@@ -7,6 +7,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'guard-rspec'
+  gem 'faker'
 end
 
 group :test do
@@ -27,6 +28,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 gem 'bcrypt', '~> 3.1.7'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false
